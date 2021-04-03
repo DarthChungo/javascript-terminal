@@ -1,7 +1,7 @@
 {
-  "name": "javascript-terminal",
-  "version": "1.1.1",
-  "description": "Emulate a terminal environment in JavaScript",
+  "name": "javascript-terminal-more",
+  "version": "1.0.0",
+  "description": "Emulate a terminal environment in JavaScript, forked from rohanchandra",
   "main": "lib/terminal.js",
   "unpkg": "lib/terminal.min.js",
   "scripts": {
@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rohanchandra/javascript-terminal.git"
+    "url": "https://github.com/DarthChungo/javascript-terminal.git"
   },
   "keywords": [
     "terminal",
     "emulation"
   ],
-  "author": "Rohan Chandra",
+  "author": "Antonio de Haro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rohanchandra/javascript-terminal/issues"
+    "url": "https://github.com/DarthChungo/javascript-terminal/issues"
   },
-  "homepage": "https://github.com/rohanchandra/javascript-terminal",
+  "homepage": "https://github.com/DarthChungo/javascript-terminal",
   "nyc": {
     "exclude": [
       "test",
