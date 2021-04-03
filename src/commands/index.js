@@ -1,20 +1,21 @@
 export const commandNames = [
-  'cat',
-  'cd',
-  'clear',
-  'cp',
-  'echo',
-  'head',
-  'history',
-  'ls',
-  'mkdir',
-  'printenv',
-  'pwd',
-  'rm',
-  'rmdir',
-  'tail',
-  'touch',
-  'whoami'
+  "cat",
+  "cd",
+  "clear",
+  "cp",
+  "echo",
+  "head",
+  "history",
+  "ls",
+  "mkdir",
+  "printenv",
+  "pwd",
+  "rm",
+  "rmdir",
+  "tail",
+  "touch",
+  "whoami",
+  "img",
 ];
 
 export default commandNames.reduce((mapping, commandName) => {
@@ -22,7 +23,7 @@ export default commandNames.reduce((mapping, commandName) => {
     ...mapping,
     [commandName]: {
       function: require(`commands/${commandName}`).default,
-      optDef: require(`commands/${commandName}`).optDef
-    }
+      optDef: require(`commands/${commandName}`).optDef,
+    },
   };
 }, {});
