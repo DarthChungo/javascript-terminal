@@ -4,7 +4,7 @@ import {
   TEXT_OUTPUT_TYPE,
   TEXT_ERROR_OUTPUT_TYPE,
 } from "emulator-output/output-type";
-import { IMAGE_OUTPUT_TYPE } from "./output-type";
+import { IMAGE_OUTPUT_TYPE, TYPING_OUTPUT_TYPE } from "./output-type";
 
 /**
  * Output from a command or emulator used for display to the user
@@ -55,5 +55,12 @@ export const makeImageOutput = (imageUrl) => {
   return new OutputRecord({
     type: IMAGE_OUTPUT_TYPE,
     content: imageUrl,
+  });
+};
+
+export const makeTypingOutput = (content, speed) => {
+  return new OutputRecord({
+    type: TYPING_OUTPUT_TYPE,
+    content: { content, speed }
   });
 };
