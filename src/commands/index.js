@@ -16,6 +16,7 @@ export const commandNames = [
   "touch",
   "whoami",
   "img",
+  "type"
 ];
 
 export default commandNames.reduce((mapping, commandName) => {

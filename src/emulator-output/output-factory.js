@@ -58,9 +58,9 @@ export const makeImageOutput = (imageUrl) => {
   });
 };
 
-export const makeTypingOutput = (content, speed) => {
+export const makeTypingOutput = (content) => {
   return new OutputRecord({
     type: TYPING_OUTPUT_TYPE,
-    content: { content, speed }
+    content: content
   });
 };
