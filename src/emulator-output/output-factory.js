@@ -1,5 +1,10 @@
-import { Record } from 'immutable';
-import { HEADER_OUTPUT_TYPE, TEXT_OUTPUT_TYPE, TEXT_ERROR_OUTPUT_TYPE } from 'emulator-output/output-type';
+import { Record } from "immutable";
+import {
+  HEADER_OUTPUT_TYPE,
+  TEXT_OUTPUT_TYPE,
+  TEXT_ERROR_OUTPUT_TYPE,
+} from "emulator-output/output-type";
+import { IMAGE_OUTPUT_TYPE } from "./output-type";
 
 /**
  * Output from a command or emulator used for display to the user
@@ -7,7 +12,7 @@ import { HEADER_OUTPUT_TYPE, TEXT_OUTPUT_TYPE, TEXT_ERROR_OUTPUT_TYPE } from 'em
  */
 export const OutputRecord = Record({
   type: undefined,
-  content: undefined
+  content: undefined,
 });
 
 /**
@@ -18,7 +23,7 @@ export const OutputRecord = Record({
 export const makeHeaderOutput = (cwd, command) => {
   return new OutputRecord({
     type: HEADER_OUTPUT_TYPE,
-    content: { cwd, command }
+    content: { cwd, command },
   });
 };
 
@@ -30,7 +35,7 @@ export const makeHeaderOutput = (cwd, command) => {
 export const makeTextOutput = (content) => {
   return new OutputRecord({
     type: TEXT_OUTPUT_TYPE,
-    content
+    content,
   });
 };
 
@@ -42,6 +47,13 @@ export const makeTextOutput = (content) => {
 export const makeErrorOutput = (err) => {
   return new OutputRecord({
     type: TEXT_ERROR_OUTPUT_TYPE,
-    content: `${err.source}: ${err.type}`
+    content: `${err.source}: ${err.type}`,
+  });
+};
+
+export const makeImageOutput = (imageUrl) => {
+  return new OutputRecord({
+    type: IMAGE_OUTPUT_TYPE,
+    content: imageUrl,
   });
 };
