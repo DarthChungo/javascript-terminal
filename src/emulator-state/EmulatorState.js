@@ -4,12 +4,14 @@ import { create as createEnvironmentVariables } from 'emulator-state/environment
 import { create as createFileSystem } from 'emulator-state/file-system';
 import { create as createHistory } from 'emulator-state/history';
 import { create as createOutputs } from 'emulator-state/outputs';
+import { create as createShowInput } from 'emulator-state/show-input';
 
 const FS_KEY = 'fs';
 const ENVIRONMENT_VARIABLES_KEY = 'environmentVariables';
 const HISTORY_KEY = 'history';
 const OUTPUTS_KEY = 'outputs';
 const COMMAND_MAPPING_KEY = 'commandMapping';
+const SHOW_INPUT_KEY = 'showInput';
 
 export default class EmulatorState {
   constructor(immutable) {
@@ -39,14 +41,16 @@ export default class EmulatorState {
     environmentVariables = createEnvironmentVariables(),
     history = createHistory(),
     outputs = createOutputs(),
-    commandMapping = createCommandMapping()
+    commandMapping = createCommandMapping(),
+    showInput = createShowInput()
   }) {
     const stateMap = new Map({
       [FS_KEY]: fs,
       [ENVIRONMENT_VARIABLES_KEY]: environmentVariables,
       [HISTORY_KEY]: history,
       [OUTPUTS_KEY]: outputs,
-      [COMMAND_MAPPING_KEY]: commandMapping
+      [COMMAND_MAPPING_KEY]: commandMapping,
+      [SHOW_INPUT_KEY]: showInput
     });
 
     return new EmulatorState(stateMap);
@@ -59,6 +63,16 @@ export default class EmulatorState {
   setFileSystem(newFileSystem) {
     return new EmulatorState(
       this.getImmutable().set(FS_KEY, newFileSystem)
+    );
+  }
+
+  getShowInput() {
+    return this.getImmutable().get(SHOW_INPUT_KEY);
+  }
+
+  setShowInput(showIt) {
+    return new EmulatorState(
+      this.getImmutable().set(SHOW_INPUT_KEY, showIt)
     );
   }
 
