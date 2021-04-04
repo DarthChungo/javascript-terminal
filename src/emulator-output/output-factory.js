@@ -66,3 +66,10 @@ export const makeTypingOutput = (content) => {
     }]
   });
 };
+
+export const makeTypingOutputAdvanced = (sequence) => {
+  return new OutputRecord({
+    type: TYPING_OUTPUT_TYPE,
+    content: sequence
+  });
+};
