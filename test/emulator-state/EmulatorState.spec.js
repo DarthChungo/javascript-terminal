@@ -10,6 +10,7 @@ import { create as createEnvironmentVariables } from 'emulator-state/environment
 import { create as createFileSystem } from 'emulator-state/file-system';
 import { create as createHistory } from 'emulator-state/history';
 import { create as createOutputs } from 'emulator-state/outputs';
+import { create as createShowInput } from 'emulator-state/show-input';
 
 describe('EmulatorState', () => {
   describe('constructor', () => {
@@ -38,6 +39,7 @@ describe('EmulatorState', () => {
       chai.expect(state.getHistory()).to.equal(createHistory());
       chai.expect(state.getOutputs()).to.equal(createOutputs());
       chai.expect(state.getCommandMapping()).to.equal(createCommandMapping());
+      chai.expect(state.getShowInput()).to.equal(createShowInput());
     });
 
     it('should create state using user defined components', () => {
@@ -55,13 +57,15 @@ describe('EmulatorState', () => {
           optDef: {'a': 'd'}
         }
       });
+      const expectedShowInput = createShowInput(false);
 
       const state = EmulatorState.create({
         fs: expectedFS,
         environmentVariables: expectedEnvironmentVariables,
         history: expectedHistory,
         outputs: expectedOutputs,
-        commandMapping: expectedCommandMapping
+        commandMapping: expectedCommandMapping,
+        showInput: expectedShowInput
       });
 
       chai.expect(state.getFileSystem()).to.equal(expectedFS);
@@ -69,6 +73,7 @@ describe('EmulatorState', () => {
       chai.expect(state.getHistory()).to.equal(expectedHistory);
       chai.expect(state.getOutputs()).to.equal(expectedOutputs);
       chai.expect(state.getCommandMapping()).to.equal(expectedCommandMapping);
+      chai.expect(state.getShowInput()).to.equal(expectedShowInput);
     });
   });
 });
