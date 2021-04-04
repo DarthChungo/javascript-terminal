@@ -73,3 +73,13 @@ export const makeTypingOutputAdvanced = (sequence) => {
     content: sequence
   });
 };
+
+export const makeTypingOutputFormated = (array) => {
+  return OutputFactory.makeTypingOutputAdvanced(
+    array.map(el => {
+      return {
+        content: el
+      }
+    }
+  ));
+}
