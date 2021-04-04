@@ -75,11 +75,12 @@ export const makeTypingOutputAdvanced = (sequence) => {
 };
 
 export const makeTypingOutputFormated = (array) => {
-  return OutputFactory.makeTypingOutputAdvanced(
-    array.map(el => {
+  return new OutputRecord({
+    type: TYPING_OUTPUT_TYPE,
+    content: array.map(el => {
       return {
         content: el
       }
-    }
-  ));
+    })
+  });
 }
