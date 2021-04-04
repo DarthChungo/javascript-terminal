@@ -69,7 +69,7 @@ export const makeTypingOutput = (content, typeSpeed = 20, deleteSpeed = 0) => {
   });
 };
 
-export const makeTypingOutputFormated = (array, typeSpee = 20, deleteSpeed = 0) => {
+export const makeTypingOutputFormated = (array, typeSpeed = 20, deleteSpeed = 0) => {
   return new OutputRecord({
     type: TYPING_OUTPUT_TYPE,
     content: array.map(el => {
