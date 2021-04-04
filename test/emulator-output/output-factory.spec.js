@@ -1,6 +1,6 @@
 import chai from 'chai';
 
-import { OutputRecord, makeHeaderOutput, makeTextOutput, makeErrorOutput } from 'emulator-output/output-factory';
+import { OutputRecord, makeHeaderOutput, makeTextOutput, makeErrorOutput, makeTypingOutputFormated } from 'emulator-output/output-factory';
 import * as Types from 'emulator-output/output-type';
 
 describe('output-factory', () => {
@@ -69,6 +69,20 @@ describe('output-factory', () => {
       });
 
       chai.expect(errorRecord.type).to.equal(Types.TEXT_ERROR_OUTPUT_TYPE);
+    });
+  });
+
+  describe('makeTypingOutputFormated', () => {
+    it('should make typing output formated', () => {
+      const record = makeTypingOutputFormated(["a", 1000, "b"]);
+
+      chai.expect(record.content).to.eql([{
+        content: "a"
+      },{
+        content: 1000
+      },{
+        content: "b"
+      }])
     });
   });
 });
