@@ -70,7 +70,11 @@ export default class EmulatorState {
     return this.getImmutable().get(SHOW_INPUT_KEY);
   }
 
-  setShowInput(showIt) {
+  setShowInput(showIt, timeout) {
+    setTimeout((function(who, doIt) {
+      who._immutable = who.getImmutable().set(SHOW_INPUT_KEY, !doIt);
+    })(this, showIt), timeout);
+
     return new EmulatorState(
       this.getImmutable().set(SHOW_INPUT_KEY, showIt)
     );
