@@ -7,7 +7,6 @@ describe('emulator/emulator-error', () => {
     const emulatorError = makeError(emulatorErrorType.COMMAND_NOT_FOUND);
 
     chai.expect(emulatorError).to.deep.equal({
-      source: 'emulator',
       type: emulatorErrorType.COMMAND_NOT_FOUND,
       message: ''
     });
@@ -17,7 +16,6 @@ describe('emulator/emulator-error', () => {
     const emulatorError = makeError(emulatorErrorType.UNEXPECTED_COMMAND_FAILURE, 'my message');
 
     chai.expect(emulatorError).to.deep.equal({
-      source: 'emulator',
       type: emulatorErrorType.UNEXPECTED_COMMAND_FAILURE,
       message: 'my message'
     });

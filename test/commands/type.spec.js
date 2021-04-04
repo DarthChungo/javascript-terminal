@@ -12,7 +12,7 @@ describe("type", () => {
   it("should create the type tag", () => {
     const { output } = type(state, ["Hello", "world"]);
 
-    chai.expect(output.content).to.eql([{content: 'Hello world'}]);
+    chai.expect(output.content.content).to.eql([{content: 'Hello world'}]);
     chai.expect(output.type).to.equal(TYPING_OUTPUT_TYPE);
   });
 });

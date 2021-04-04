@@ -55,16 +55,14 @@ describe('output-factory', () => {
   describe('makeTextOutput', () => {
     it('should combine source of error and type of error in output', () => {
       const errorRecord = makeErrorOutput({
-        source: 'the source',
         type: 'the type'
       });
 
-      chai.expect(errorRecord.content).to.be.deep.equal('the source: the type');
+      chai.expect(errorRecord.content).to.be.deep.equal('the type');
     });
 
     it('should create a record with error type', () => {
       const errorRecord = makeErrorOutput({
-        source: 'the source',
         type: 'the type'
       });
 
@@ -76,13 +74,18 @@ describe('output-factory', () => {
     it('should make typing output formated', () => {
       const record = makeTypingOutputFormated(["a", 1000, "b"]);
 
-      chai.expect(record.content).to.eql([{
+      chai.expect(record.content.content).to.eql([{
         content: "a"
       },{
         content: 1000
       },{
         content: "b"
       }])
+
+      chai.expect(record.content.options).to.eql({
+        typeSpeed: 20,
+        deleteSpeed: 0
+      })
     });
   });
 });
