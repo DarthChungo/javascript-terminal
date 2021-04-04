@@ -58,29 +58,26 @@ export const makeImageOutput = (imageUrl) => {
   });
 };
 
-export const makeTypingOutput = (content) => {
+export const makeTypingOutput = (content, typeSpeed = 20, deleteSpeed = 0) => {
   return new OutputRecord({
     type: TYPING_OUTPUT_TYPE,
     content: [{
       content: content
-    }]
+    }],
+    typeSpeed: typeSpeed,
+    deleteSpeed: deleteSpeed
   });
 };
 
-export const makeTypingOutputAdvanced = (sequence) => {
-  return new OutputRecord({
-    type: TYPING_OUTPUT_TYPE,
-    content: sequence
-  });
-};
-
-export const makeTypingOutputFormated = (array) => {
+export const makeTypingOutputFormated = (array, typeSpee = 20, deleteSpeed = 0) => {
   return new OutputRecord({
     type: TYPING_OUTPUT_TYPE,
     content: array.map(el => {
       return {
         content: el
       }
-    })
+    }),
+    typeSpeed: typeSpeed,
+    deleteSpeed: deleteSpeed
   });
 }
