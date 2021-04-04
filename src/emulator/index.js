@@ -78,12 +78,12 @@ export default class Emulator {
    * @param  {string}         errorStr                string to display on unrecognized command
    * @return {EmulatorState}                          updated emulator state after running command
    */
-  execute(state, str, executionListeners = [], errorStr) {
+  execute(state, str, executionListeners = [], errorStr, silent = false) {
     for (const executionListener of executionListeners) {
       executionListener.onExecuteStarted(state, str);
     }
 
-    state = this._addHeaderOutput(state, str);
+    if (!silent) {state = this._addHeaderOutput(state, str);}
 
     if (str.trim() === '') {
       // empty command string
