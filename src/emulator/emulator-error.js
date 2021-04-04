@@ -3,7 +3,7 @@
  * @type {Object}
  */
 export const emulatorErrorType = {
-  COMMAND_NOT_FOUND: 'Command not found',
+  COMMAND_NOT_FOUND: 'Error',
   UNEXPECTED_COMMAND_FAILURE: 'Unhandled command error'
 };
 
@@ -15,7 +15,6 @@ export const emulatorErrorType = {
  */
 export const makeError = (emulatorErrorType, message = '') => {
   return {
-    source: 'emulator',
     type: emulatorErrorType,
     message
   };

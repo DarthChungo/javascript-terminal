@@ -47,7 +47,7 @@ export const makeTextOutput = (content) => {
 export const makeErrorOutput = (err) => {
   return new OutputRecord({
     type: TEXT_ERROR_OUTPUT_TYPE,
-    content: `${err.source}: ${err.type}`,
+    content: `${err.type}`,
   });
 };
 
