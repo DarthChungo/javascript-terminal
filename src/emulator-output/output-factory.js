@@ -4,7 +4,7 @@ import {
   TEXT_OUTPUT_TYPE,
   TEXT_ERROR_OUTPUT_TYPE,
 } from "emulator-output/output-type";
-import { IMAGE_OUTPUT_TYPE, TYPING_OUTPUT_TYPE } from "./output-type";
+import { IMAGE_OUTPUT_TYPE, TYPING_OUTPUT_TYPE, LINK_OUTPUT_TYPE } from "./output-type";
 
 /**
  * Output from a command or emulator used for display to the user
@@ -87,5 +87,12 @@ export const makeTypingOutputFormated = (array, typeSpeed = 20, deleteSpeed = 0)
         deleteSpeed: deleteSpeed
       }
     }
+  });
+}
+
+export const makeLinkOutput = (link) => {
+  return new OutputRecord({
+    type: LINK_OUTPUT_TYPE,
+    content: link
   });
 }
